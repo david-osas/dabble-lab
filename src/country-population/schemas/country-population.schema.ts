@@ -1,8 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Schema as MongooseSchema } from 'mongoose';
 
-@Schema()
+@Schema({ timestamps: true })
 export class CountryPopulation {
+  _id: MongooseSchema.Types.ObjectId;
+
   @Prop()
   country: string;
 
@@ -14,6 +16,12 @@ export class CountryPopulation {
 
   @Prop()
   totalPopulation: number;
+
+  @Prop()
+  createdAt: Date;
+
+  @Prop()
+  updatedAt: Date;
 }
 
 export const CountryPopulationSchema =
