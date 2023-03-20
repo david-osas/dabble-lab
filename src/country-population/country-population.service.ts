@@ -1,3 +1,4 @@
+import { FindCountryPopulationArrayArgs } from './dto/find-country-population-array.args';
 import { UpdateCountryPopulationInput } from './dto/update-country-population.input';
 import { CreateCountryPopulationInput } from './dto/create-country-population.input';
 import {
@@ -39,5 +40,9 @@ export class CountryPopulationService {
       ...(id && { _id: id }),
     };
     return await this.countryPopulationModel.findOne(conditions);
+  }
+
+  async find(conditionArgs: FindCountryPopulationArrayArgs) {
+    return await this.countryPopulationModel.find(conditionArgs);
   }
 }

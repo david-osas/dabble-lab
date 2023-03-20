@@ -1,3 +1,4 @@
+import { FindCountryPopulationArrayArgs } from './dto/find-country-population-array.args';
 import { FindCountryPopulationArgs } from './dto/find-country-population.args';
 import { UpdateCountryPopulationInput } from './dto/update-country-population.input';
 import { CountryPopulation } from './schemas/country-population.schema';
@@ -31,7 +32,9 @@ export class CountryPopulationResolver {
   }
 
   @Query(() => [CountryPopulation])
-  async countryPopulations() {
-    return;
+  async countryPopulations(
+    @Args() conditionArgs: FindCountryPopulationArrayArgs,
+  ) {
+    return this.countryPopulationService.find(conditionArgs);
   }
 }
