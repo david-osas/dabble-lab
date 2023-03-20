@@ -1,3 +1,4 @@
+import { CountryPopulationModule } from './country-population/country-population.module';
 import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
@@ -13,6 +14,7 @@ import { AppService } from './app.service';
       playground: true,
     }),
     MongooseModule.forRoot(process.env.MONGO_DB_URI),
+    CountryPopulationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
