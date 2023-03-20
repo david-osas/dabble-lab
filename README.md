@@ -31,3 +31,7 @@ To run tests with code coverage
 ```
 yarn test:cov
 ```
+
+## App Demo
+Click on the link below to watch a demo video of the application
+https://drive.google.com/file/d/1kOWWjv_V7sKyJmFMvBspzTtVJ76uum5C/view?usp=share_link
