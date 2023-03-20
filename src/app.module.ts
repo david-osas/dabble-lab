@@ -5,6 +5,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -12,7 +13,9 @@ import { AppService } from './app.service';
       driver: ApolloDriver,
       autoSchemaFile: true,
       playground: true,
+      path: '/graphql',
     }),
+    ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRoot(process.env.MONGO_DB_URI),
     CountryPopulationModule,
   ],
