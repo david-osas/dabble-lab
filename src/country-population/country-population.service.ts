@@ -18,8 +18,7 @@ export class CountryPopulationService {
   ) {}
 
   async create(createInput: CreateCountryPopulationInput) {
-    const countryPopulation = new this.countryPopulationModel(createInput);
-    return await countryPopulation.save();
+    return await this.countryPopulationModel.create(createInput);
   }
 
   async update(updateInput: UpdateCountryPopulationInput) {
