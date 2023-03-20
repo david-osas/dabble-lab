@@ -1,3 +1,4 @@
+import { FindCountryPopulationArgs } from './dto/find-country-population.args';
 import { UpdateCountryPopulationInput } from './dto/update-country-population.input';
 import { CountryPopulation } from './schemas/country-population.schema';
 import { CreateCountryPopulationInput } from './dto/create-country-population.input';
@@ -17,11 +18,16 @@ export class CountryPopulationResolver {
     return this.countryPopulationService.create(createInput);
   }
 
-  @Mutation(() => CountryPopulation)
+  @Mutation(() => CountryPopulation, { nullable: true })
   async updateCountryPopulation(
     @Args('updateInput') updateInput: UpdateCountryPopulationInput,
   ) {
     return this.countryPopulationService.update(updateInput);
+  }
+
+  @Query(() => CountryPopulation, { nullable: true })
+  async countryPopulation(@Args() conditionArgs: FindCountryPopulationArgs) {
+    return this.countryPopulationService.findOne(conditionArgs);
   }
 
   @Query(() => [CountryPopulation])
