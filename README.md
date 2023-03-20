@@ -14,6 +14,9 @@ The NestJS code-frist approach was used for the GraphQL implementation in the ap
 ## Testing
 Unit tests were written for several functions in the API, with high code coverage of the entire application. The framework used for testing is Jest.
 
+## Environmental Variables
+Before running the application make sure the necessary environmental variables are set. Take a look at the .env.example file which specifies environmental varaibles used by the appication.
+
 ## Scripts
 Several scripts are specified in the package.json file. To install packages, after cloning, use
 ```
