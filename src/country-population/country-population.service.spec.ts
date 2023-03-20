@@ -61,6 +61,7 @@ describe('Country Population Service', () => {
     );
 
     expect(countryPopulation).toEqual(dummyCountryPopulation);
+    expect(createMock).toBeCalledTimes(1);
   });
 
   it('should update country population record', async () => {
@@ -74,6 +75,7 @@ describe('Country Population Service', () => {
       ...dummyCountryPopulation,
       year: newYear,
     });
+    expect(findOneAndUpdateMock).toBeCalledTimes(1);
   });
 
   it('should not update country population record with invalid id', async () => {
@@ -84,6 +86,7 @@ describe('Country Population Service', () => {
     });
 
     expect(countryPopulation).toBeNull();
+    expect(findOneAndUpdateMock).toBeCalledTimes(1);
   });
 
   it('should find one country population record', async () => {
@@ -92,6 +95,7 @@ describe('Country Population Service', () => {
     });
 
     expect(countryPopulation).toEqual(dummyCountryPopulation);
+    expect(findOneMock).toBeCalledTimes(1);
   });
 
   it('should not find one country population record with wrong id', async () => {
@@ -100,6 +104,7 @@ describe('Country Population Service', () => {
     });
 
     expect(countryPopulation).toBeNull();
+    expect(findOneMock).toBeCalledTimes(1);
   });
 
   it('should find array of country population records', async () => {
@@ -108,5 +113,6 @@ describe('Country Population Service', () => {
     });
 
     expect(records).toEqual([dummyCountryPopulation]);
+    expect(findMock).toBeCalledTimes(1);
   });
 });
