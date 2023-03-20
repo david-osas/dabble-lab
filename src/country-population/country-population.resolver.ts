@@ -1,3 +1,4 @@
+import { UpdateCountryPopulationInput } from './dto/update-country-population.input';
 import { CountryPopulation } from './schemas/country-population.schema';
 import { CreateCountryPopulationInput } from './dto/create-country-population.input';
 import { CountryPopulationService } from './country-population.service';
@@ -14,6 +15,13 @@ export class CountryPopulationResolver {
     @Args('createInput') createInput: CreateCountryPopulationInput,
   ) {
     return this.countryPopulationService.create(createInput);
+  }
+
+  @Mutation(() => CountryPopulation)
+  async updateCountryPopulation(
+    @Args('updateInput') updateInput: UpdateCountryPopulationInput,
+  ) {
+    return this.countryPopulationService.update(updateInput);
   }
 
   @Query(() => [CountryPopulation])
