@@ -8,6 +8,9 @@ This is a GraphQL API with queries and mutations to create, update and fetch cou
 - NestJS
 - Yarn
 
+## GraphQL implementation
+The NestJS code-frist approach was used for the GraphQL implementation in the application. More information on that can be read following this link https://docs.nestjs.com/graphql/quick-start#code-first
+
 ## Testing
 Unit tests were written for several functions in the API, with high code coverage of the entire application. The framework used for testing is Jest.
 
